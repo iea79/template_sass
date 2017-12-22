@@ -793,7 +793,8 @@ input[type=checkbox]:disabled:indeterminate:before {
 /* Header
  ----------------------------------------------------------------------------- */
 .header {
-  background-color: #ccc; }
+  background-color: #ccc;
+  padding: 10px 0; }
 
 .logo {
   background-color: #ddd;
@@ -809,6 +810,8 @@ input[type=checkbox]:disabled:indeterminate:before {
 /* Navbar
 -------------------------------------------------------------------------------*/
 .navbar {
+  margin: 0;
+  padding: 0;
   overflow: hidden;
   text-align: right; }
   .navbar__item {
