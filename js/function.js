@@ -15,13 +15,9 @@ function isTouch() { return TempApp.touchDevice(); } // for touch device
 
 $(document).ready(function() {
 
-    // Хак для фокуса на ссылке на iOS
+    // Хак для клика по ссылке на iOS
     if (isIOS()) {
         $(function(){$(document).on('touchend', 'a', $.noop)});
-    }
-
-    if (isIOS()) {
-    } else {
     }
 
 	if ('flex' in document.documentElement.style) {
@@ -73,5 +69,31 @@ $(document).ready(function() {
     //             }
     //     });
     // });
-
+   	// setGridMatch($('[data-grid-match] .grid__item'));
+   	$('[data-grid-match] .grid__item').matchHeight({
+   		byRow: true,
+   	});
 });
+
+$(window).resize(function(event) {
+	checkOnResize()
+});
+
+function checkOnResize() {
+   	// setGridMatch($('[data-grid-match] .grid__item'));
+}
+
+// function setGridMatch(columns) {
+// 	var tallestcolumn = 0;
+// 	columns.removeAttr('style');
+// 	columns.each( function() {
+// 		currentHeight = $(this).height();
+// 		if(currentHeight > tallestcolumn) {
+// 			tallestcolumn = currentHeight;
+// 		}
+// 	});
+// 	setTimeout(function() {
+// 		columns.css('minHeight', tallestcolumn);
+// 	}, 100);
+// }
+

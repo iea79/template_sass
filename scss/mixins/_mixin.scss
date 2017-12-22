@@ -18,8 +18,11 @@
 // 	@include columns-text(300px, 3, 40px);
 // }
 @mixin columns($count, $padding, $width) {
+	-webkit-column-count: $count; // Count and width or columns
 	column-count: $count; // Count and width or columns
+	-webkit-column-gap: $padding; // Padding for columns
 	column-gap: $padding; // Padding for columns
+	-webkit-column-width: $width; // Min width for columns
 	column-width: $width; // Min width for columns
 }
 
@@ -48,6 +51,7 @@
 
 // Transition speed for element
 @mixin trs($trs_speed) {
+	-webkit-transition: all $trs_speed+s;
 	transition: all $trs_speed+s;
 }
 
@@ -127,7 +131,7 @@
 		display: -ms-flexbox;
 		display: -ms-flex;
 		display: flex;
-		&>* {
+		&>div {
 			display: block;
 		}
 	}
@@ -136,13 +140,13 @@
 		font-size: 0;
 		line-height: 0;
 		letter-spacing: -1px;
-		&>* {
+		&>div {
 			// display: -moz-inline-stack!important;
 			display: inline-block;
 			vertical-align: top;
-			letter-spacing:normal;
-			line-height:normal;
-			font-size: initial;
+			letter-spacing: normal;
+			line-height: $main_line_height;
+			font-size: $main_font_size;
 		}
 	}
 }
