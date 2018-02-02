@@ -70,9 +70,7 @@ $(document).ready(function() {
     //     });
     // });
    	// setGridMatch($('[data-grid-match] .grid__item'));
-   	$('[data-grid-match] .grid__item').matchHeight({
-   		byRow: true,
-   	});
+   	gridMatch();
 });
 
 $(window).resize(function(event) {
@@ -81,6 +79,13 @@ $(window).resize(function(event) {
 
 function checkOnResize() {
    	// setGridMatch($('[data-grid-match] .grid__item'));
+   	gridMatch();
+}
+
+function gridMatch() {
+   	$('[data-grid-match] .grid__item').matchHeight({
+   		byRow: true,
+   	});
 }
 
 // function setGridMatch(columns) {

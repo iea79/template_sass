@@ -6,15 +6,17 @@
 //  ==========================
  */
 
+@import 'mixins/mixin';
 // Fonts
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,900);
-@import url(https://fonts.googleapis.com/css?family=Lora);
-
+// @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,900);
+// @import url(https://fonts.googleapis.com/css?family=Lora);
+@include font-face("Century Gothic", fonts/CenturyGothic, normal, normal);
+@include font-face("Century Gothic Bold", fonts/CenturyGothic, bold, normal);
+@include font-face("ArialMT", fonts/CenturyGothic, normal, normal);
 
 
  // Import files
 @import 'variables/variables';
-@import 'mixins/mixin';
 @import 'core/reset';
 @import 'core/form';
 @import 'core/grid';
@@ -41,6 +43,7 @@
 // Main wrappers =====================================
 
 .wrapper {
+	font-size: $main_font_size;
     min-height: 100%;
     height: auto !important;
     height: 100%;
@@ -48,7 +51,7 @@
 }
 
 .container_center {
-	max-width: 1200px;
+	max-width: $container_width;
 	padding: 0 15px;
 	margin-left: auto;
 	margin-right: auto;
