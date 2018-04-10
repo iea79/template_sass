@@ -2,6 +2,7 @@ var TempApp = {
     lgWidth: 1200,
     mdWidth: 992,
     smWidth: 768,
+    resized: false,
     iOS: function() { return navigator.userAgent.match(/iPhone|iPad|iPod/i); },
     touchDevice: function() { return navigator.userAgent.match(/iPhone|iPad|iPod|Android|BlackBerry|Opera Mini|IEMobile/i); }
 };
@@ -74,6 +75,11 @@ $(document).ready(function() {
 });
 
 $(window).resize(function(event) {
+    var windowWidth = $(window).width();
+    // Запрещаем выполнение скриптов при смене только высоты вьюпорта (фикс для скролла в IOS и Android >=v.5)
+    if (TempApp.resized == windowWidth) { return; }
+    TempApp.resized = windowWidth;
+
 	checkOnResize()
 });
 
