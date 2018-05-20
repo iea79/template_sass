@@ -1,3 +1,11 @@
+/*!
+ *
+ * Evgeniy Ivanov - 2018
+ * busforward@gmail.com
+ * Skype: ivanov_ea
+ *
+ */
+
 var TempApp = {
     lgWidth: 1200,
     mdWidth: 992,
