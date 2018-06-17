@@ -118,8 +118,8 @@ function fontResize() {
 
 // Видео youtube для страницы
 $(function () {
-    if ($(".js-youtube")) {
-        $(".js-youtube").each(function () {
+    if ($(".js_youtube")) {
+        $(".js_youtube").each(function () {
             // Зная идентификатор видео на YouTube, легко можно найти его миниатюру
             $(this).css('background-image', 'url(http://i.ytimg.com/vi/' + this.id + '/sddefault.jpg)');
 
@@ -130,7 +130,7 @@ $(function () {
 
         $('.video__play, .video__prev').on('click', function () {
             // создаем iframe со включенной опцией autoplay
-            var videoId = $(this).closest('.youtube').attr('id');
+            var videoId = $(this).closest('.js_youtube').attr('id');
             var iframe_url = "https://www.youtube.com/embed/" + videoId + "?autoplay=1&autohide=1";
             if ($(this).data('params')) iframe_url += '&' + $(this).data('params');
 
@@ -150,67 +150,6 @@ $(function () {
 
 });
 
-
-function formSubmit() {
-    $("[type=submit]").on('click', function (e){ 
-        e.preventDefault();
-        var form = $(this).closest('.form');
-        var url = form.attr('action');
-        var form_data = form.serialize();
-        var field = form.find('[required]');
-        // console.log(form_data);
-
-        empty = 0;
-
-        field.each(function() {
-            if ($(this).val() == "") {
-                $(this).addClass('invalid');
-                // return false;
-                empty++;
-            } else {
-                $(this).removeClass('invalid');
-                $(this).addClass('valid');
-            }  
-        });
-
-        // console.log(empty);
-
-        if (empty > 0) {
-            return false;
-        } else {        
-            $.ajax({
-                url: url,
-                type: "POST",
-                dataType: "html",
-                data: form_data,
-                success: function (response) {
-                    // $('#success').modal('show');
-                    // console.log('success');
-                    // console.log(response);
-                    // console.log(data);
-                    document.location.href = "success.html";
-                },
-                error: function (response) {
-                    // $('#success').modal('show');
-                    // console.log('error');
-                    // console.log(response);
-                }
-            });
-        }
-
-    });
-
-    $('[name="policyConfirm"]').on('change', function(event) {
-        event.preventDefault();
-        var btn = $(this).closest('.form').find('.btn');
-        if ($(this).prop('checked')) {
-            btn.removeAttr('disabled');
-            // console.log('checked');
-        } else {
-            btn.attr('disabled', true);
-        }
-    });
-}
 
 // Деление чисел на разряды Например из строки 10000 получаем 10 000
 // Использование: thousandSeparator(1000) или используем переменную.

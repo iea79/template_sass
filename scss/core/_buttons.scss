@@ -26,7 +26,7 @@
 		color: #000;
 	}
 	@each $status_el, $color_bg in $el_colors {
-		&__#{$status_el} {
+		&_#{$status_el} {
 			background-color: $color_bg;
 			border-color: $color_bg;
 			color: $btn_contrast_text_color;
