@@ -81,8 +81,12 @@ $(document).ready(function() {
 
     // Inputmask.js
     // $('[name=tel]').inputmask("+9(999)999 99 99",{ showMaskOnHover: false });
+    // formSubmit();
+    
+   	// gridMatch();
 
-   	gridMatch();
+    checkOnResize();
+
 });
 
 $(window).resize(function(event) {
@@ -91,11 +95,13 @@ $(window).resize(function(event) {
     if (TempApp.resized == windowWidth) { return; }
     TempApp.resized = windowWidth;
 
-	checkOnResize()
+	checkOnResize();
+
 });
 
 function checkOnResize() {
-   	gridMatch();
+   	// gridMatch();
+    fontResize();
 }
 
 function gridMatch() {
@@ -106,12 +112,10 @@ function gridMatch() {
 
 function fontResize() {
     var windowWidth = $(window).width();
-    if (windowWidth < 1440 && windowWidth >= 768) {
+    if (windowWidth >= 1200) {
     	var fontSize = windowWidth/19.05;
-    } else if (windowWidth < 768) {
-    	var fontSize = 50;
-    // } else if (windowWidth >= 1770) {
-    // 	var fontSize = 100;
+    } else if (windowWidth < 1200) {
+    	var fontSize = 60;
     }
 	$('body').css('fontSize', fontSize + '%');
 }

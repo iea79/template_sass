@@ -48,11 +48,11 @@ textarea {
 	transition: all .3s;
 	&:hover {
 		border: 1px solid $input_hover_border_color;
-		background-color: $input_hover_bg_color;;
+		background-color: $input_hover_bg_color;
 	}
 	&:focus {
 		border: 1px solid $input_focus_border_color;
-		background-color: $input_focus_bg_color;;
+		background-color: $input_focus_bg_color;
 	}
 	&.invalid {
 		background-color: #fff0f0;

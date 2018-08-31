@@ -124,31 +124,36 @@
 // @TODO: Add docs to flexbox!
 // 
 @mixin flex() {
-	@include browser("flexible") {	
-		display: -webkit-box;
-		display: -moz-box;
-		display: -webkit-flex;
-		display: -ms-flexbox;
-		display: -ms-flex;
+	// @include browser("flexible") {	
+		// display: -webkit-box;
+		// display: -moz-box;
+		// display: -webkit-flex;
+		// display: -ms-flexbox;
+		// display: -ms-flex;
+		// display: flex;
 		display: flex;
+		flex-wrap: wrap;
 		&>div {
 			display: block;
+			min-height: 1px;
+			flex: none;
 		}
-	}
-	@include browser("not-flex") {	
-		display: block;
-		font-size: 0;
-		line-height: 0;
-		letter-spacing: -1px;
-		&>div {
-			// display: -moz-inline-stack!important;
-			display: inline-block;
-			vertical-align: top;
-			letter-spacing: normal;
-			line-height: $main_line_height;
-			font-size: $main_font_size;
-		}
-	}
+	// }
+	// @include browser("not-flex") {	
+	// 	display: block;
+	// 	font-size: 0;
+	// 	line-height: 0;
+	// 	letter-spacing: -1px;
+	// 	&>div {
+	// 		// display: -moz-inline-stack!important;
+	// 		min-height: 1px;
+	// 		display: inline-block;
+	// 		vertical-align: top;
+	// 		letter-spacing: normal;
+	// 		line-height: $main_line_height;
+	// 		font-size: $main_font_size;
+	// 	}
+	// }
 }
 
 @mixin order($val) {

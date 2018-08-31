@@ -6,8 +6,8 @@
 	&__wrapper {
 		position: relative;
 		overflow: hidden;
-		padding-bottom: 56.6em;
-		iframe {
+		padding-bottom: 56.4%;
+		iframe,.video__prev {
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -32,6 +32,7 @@
 		margin-top: -3.6em;
 		margin-left: -3.6em;
 		border-radius: 50%;
+		cursor: pointer;
 		// background-color: #f00;
 	}
 }
