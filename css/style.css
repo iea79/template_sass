@@ -431,12 +431,12 @@ template {
   min-height: 100%;
   height: auto !important;
   height: 100%;
-  margin: 0 auto -auto auto; }
+  margin: 0 auto -60px auto; }
 
 /* Middle
  ----------------------------------------------------------------------------- */
 .main__content {
-  padding-bottom: auto; }
+  padding-bottom: 60px; }
 
 .container_center {
   max-width: 900px;
@@ -470,8 +470,9 @@ template {
 /* Footer
  ----------------------------------------------------------------------------- */
 .footer {
+  font-size: 16px;
   position: relative;
-  height: auto;
+  height: 60px;
   background: #BFF08E; }
   .footer .container_center {
     padding-top: 10px;
