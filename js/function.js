@@ -22,6 +22,7 @@ function isXsWidth() { return $(window).width() < TempApp.smWidth; } // < 768
 function isIOS() { return TempApp.iOS(); } // for iPhone iPad iPod
 function isTouch() { return TempApp.touchDevice(); } // for touch device
 
+
 $(document).ready(function() {
 
     // Хак для клика по ссылке на iOS
@@ -29,18 +30,6 @@ $(document).ready(function() {
         $(function(){$(document).on('touchend', 'a', $.noop)});
     }
 
-	if ('flex' in document.documentElement.style) {
-		// Хак для UCBrowser
-		if (navigator.userAgent.search(/UCBrowser/) > -1) {
-			document.documentElement.setAttribute('data-browser', 'not-flex');
-		} else {		
-		    // Flexbox-совместимый браузер.
-			document.documentElement.setAttribute('data-browser', 'flexible');
-		}
-	} else {
-	    // Браузер без поддержки Flexbox, в том числе IE 9/10.
-		document.documentElement.setAttribute('data-browser', 'not-flex');
-	}
 
 	// First screen full height
 	function setHeiHeight() {
@@ -83,7 +72,7 @@ $(document).ready(function() {
     // $('[name=tel]').inputmask("+9(999)999 99 99",{ showMaskOnHover: false });
     // formSubmit();
     
-   	// gridMatch();
+   	gridMatch();
 
     checkOnResize();
 
@@ -100,7 +89,7 @@ $(window).resize(function(event) {
 });
 
 function checkOnResize() {
-   	// gridMatch();
+   	gridMatch();
     fontResize();
 }
 

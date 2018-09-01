@@ -669,18 +669,31 @@ input[type=checkbox]:disabled:checked:before, input[type=checkbox]:disabled:inde
 .grid {
   margin-left: -20px;
   -webkit-box-sizing: content-box;
-  box-sizing: content-box;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap; }
-  .grid > div {
+  box-sizing: content-box; }
+  html[data-browser*="flexible"] .grid {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap; }
+    html[data-browser*="flexible"] .grid > div {
+      display: block;
+      min-height: 1px;
+      -webkit-box-flex: 0;
+      -ms-flex: none;
+      flex: none; }
+  html[data-browser*="not-flex"] .grid {
     display: block;
-    min-height: 1px;
-    -webkit-box-flex: 0;
-    -ms-flex: none;
-    flex: none; }
+    font-size: 0;
+    line-height: 0;
+    letter-spacing: -1px; }
+    html[data-browser*="not-flex"] .grid > div {
+      min-height: 1px;
+      display: inline-block;
+      vertical-align: top;
+      letter-spacing: normal;
+      line-height: 1.2;
+      font-size: 16px; }
   html[data-browser*="flexible"] .grid {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
