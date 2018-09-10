@@ -135,6 +135,37 @@
 // }
 
 
+// Ширина колонок сетки
+// Использование
+// @include grid-size(2); две колонки
+@mixin grid-size($size) {
+	&__#{$size} {
+		> div {
+			width: 100% / $size;
+		}
+	}
+}
+// Ширина колонок сетки при смене ширины окна
+// @include xs-grid-size(2); две колонки при меньше 767 пикселей
+@mixin xs-grid-size($size) {
+	@media (max-width: 767px) {
+		@include grid-size($size);
+	}
+}
+@mixin sm-grid-size($size) {
+	@media (max-grid-width: 991px) {
+		@include size($size);
+	}
+}
+@mixin md-grid-size($size) {
+	@media (max-width: 1199px) {
+		@include grid-size($size);
+	}
+}
+
+
+
+
 // 
 // @TODO: Add docs to flexbox!
 // 

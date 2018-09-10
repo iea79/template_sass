@@ -19,7 +19,7 @@
 	@include flex();
 	@include flex-flow(row wrap);
 	// @extend %clear_all;
-	&-nowrap {
+	&_nowrap {
 		@include flex-flow(row nowrap);
 	}
 	>div {
@@ -55,32 +55,21 @@
 			// border: 3px solid #ddd;
 		}
 	}
-	&__1 {
-		>div {		
-			width: 100%;
-		}
-	}
-	&__2 {
-		>div {		
-			width: 50%;
-		}
-	}
-	&__3 {
-		>div {
-			width: 33.3%;
-		}
-	}
-	&__4 {
-		>div {		
-			width: 25%;
-		}
-	}
-	&__5 {
-		>div {		
-			width: 20%;
-		}
-	}
+	@include grid-size(1);
+	@include grid-size(2);
+	@include grid-size(3);
+	@include grid-size(4);
+	@include grid-size(5);
+	@include grid-size(6);
+	@include grid-size(7);
+	@include grid-size(8);
+	@include grid-size(9);
+	@include grid-size(10);
+	@include grid-size(11);
+	@include grid-size(12);
+	// @include grid-size(50);
 }
+
 
 
 [data-grid-match] {

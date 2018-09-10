@@ -699,7 +699,7 @@ input[type=checkbox]:disabled:checked:before, input[type=checkbox]:disabled:inde
     -webkit-box-direction: normal;
     -ms-flex-flow: row wrap;
     flex-flow: row wrap; }
-  html[data-browser*="flexible"] .grid-nowrap {
+  html[data-browser*="flexible"] .grid_nowrap {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
     -ms-flex-flow: row nowrap;
@@ -726,11 +726,25 @@ input[type=checkbox]:disabled:checked:before, input[type=checkbox]:disabled:inde
   .grid__2 > div {
     width: 50%; }
   .grid__3 > div {
-    width: 33.3%; }
+    width: 33.33333%; }
   .grid__4 > div {
     width: 25%; }
   .grid__5 > div {
     width: 20%; }
+  .grid__6 > div {
+    width: 16.66667%; }
+  .grid__7 > div {
+    width: 14.28571%; }
+  .grid__8 > div {
+    width: 12.5%; }
+  .grid__9 > div {
+    width: 11.11111%; }
+  .grid__10 > div {
+    width: 10%; }
+  .grid__11 > div {
+    width: 9.09091%; }
+  .grid__12 > div {
+    width: 8.33333%; }
 
 [data-grid-match] .grid__item {
   background-color: #eee; }
