@@ -5,15 +5,10 @@
  * Skype: ivanov_ea
  *
  */
-
-@import 'mixins/mixin';
-// Fonts
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,900);
-
-// Mixin for include fonts
+@import 'mixins/mixin'; // Fonts
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,900); // Mixin for include fonts
 // @include font-face("ArialMT", fonts/CenturyGothic, normal, normal);
-
- // Import files
+// Import files
 @import 'variables/variables';
 @import 'core/reset';
 @import 'core/template';
@@ -26,5 +21,3 @@
 @import 'core/pagination';
 @import 'core/buttons';
 @import 'core/video';
-
-
