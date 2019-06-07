@@ -47,8 +47,8 @@ $(document).ready(function() {
 	});
 
 	// Scroll to ID // Плавный скролл к элементу при нажатии на ссылку. В ссылке указываем ID элемента
-	// $('#main__menu a[href^="#"]').click( function(){ 
-	// 	var scroll_el = $(this).attr('href'); 
+	// $('#main__menu a[href^="#"]').click( function(){
+	// 	var scroll_el = $(this).attr('href');
 	// 	if ($(scroll_el).length != 0) {
 	// 	$('html, body').animate({ scrollTop: $(scroll_el).offset().top }, 500);
 	// 	}
@@ -58,7 +58,7 @@ $(document).ready(function() {
 	// Stiky menu // Липкое меню. При прокрутке к элементу #header добавляется класс .stiky который и стилизуем
     // $(document).ready(function(){
     //     var HeaderTop = $('#header').offset().top;
-        
+
     //     $(window).scroll(function(){
     //             if( $(window).scrollTop() > HeaderTop ) {
     //                     $('#header').addClass('stiky');
@@ -71,7 +71,7 @@ $(document).ready(function() {
     // Inputmask.js
     // $('[name=tel]').inputmask("+9(999)999 99 99",{ showMaskOnHover: false });
     // formSubmit();
-    
+
    	gridMatch();
 
     checkOnResize();
@@ -152,7 +152,7 @@ $(function () {
 //         len = main.length,
 //         output = '',
 //         i = len - 1;
-    
+
 //     while(i >= 0) {
 //         output = main.charAt(i) + output;
 //         if ((len - i) % 3 === 0 && i > 0) {
@@ -185,7 +185,7 @@ $(function () {
 
 // Простая проверка форм на заполненность и отправка аяксом
 // function formSubmit() {
-//     $("[type=submit]").on('click', function (e){ 
+//     $("[type=submit]").on('click', function (e){
 //         e.preventDefault();
 //         var form = $(this).closest('.form');
 //         var url = form.attr('action');
@@ -203,14 +203,14 @@ $(function () {
 //             } else {
 //                 $(this).removeClass('invalid');
 //                 $(this).addClass('valid');
-//             }  
+//             }
 //         });
 
 //         // console.log(empty);
 
 //         if (empty > 0) {
 //             return false;
-//         } else {        
+//         } else {
 //             $.ajax({
 //                 url: url,
 //                 type: "POST",
@@ -252,3 +252,33 @@ $(function () {
 // }
 
 
+// Проверка на возможность ввода только русских букв, цифр, тире и пробелов
+// $('#u_l_name').on('keypress keyup', function () {
+//     var that = this;
+//
+//     setTimeout(function () {
+//         if (that.value.match(/[ -]/) && that.value.length == 1) {
+//             that.value = '';
+//         }
+//
+//         if (that.value.match(/-+/g)) {
+//             that.value = that.value.replace(/-+/g, '-');
+//         }
+//
+//         if (that.value.match(/ +/g)) {
+//             that.value = that.value.replace(/ +/g, ' ');
+//         }
+//
+//         var res = /[^а-яА-Я -]/g.exec(that.value);
+//
+//         if (res) {
+//             removeErrorMsg('#u_l_name');
+//             $('#u_l_name').after('<div class="j-required-error b-check__errors">Измените язык ввода на русский</div>');
+//         }
+//         else {
+//             removeErrorMsg('#u_l_name');
+//         }
+//
+//         that.value = that.value.replace(res, '');
+//     }, 0);
+// });
