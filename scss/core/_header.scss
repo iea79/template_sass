@@ -4,9 +4,14 @@
 	background-color: #ccc;
 	padding: 10px 0;
 	@extend %clear_a;
-	&__logo {
-		float: left;
-		width: 150px;
+
+	&__content {
+		max-width: $container_width;
+		padding-left: 15px;
+		padding-right: 15px;
+		margin: auto;
+		display: flex;
+		justify-content: space-between;
 	}
 }
 

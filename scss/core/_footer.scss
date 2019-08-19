@@ -3,12 +3,11 @@
 .footer {
 	font-size: $main_font_size;
 	position: relative;
-	height: $footer_height;
+	// height: $footer_height;
 	background: #BFF08E;
-	@extend %clear_all;
+	// @extend %clear_all;
 	.container_center {
-		padding-top: 10px;
-		padding-bottom: 10px;
+		// padding-top: 10px;
+		// padding-bottom: 10px;
 	}
 }
-

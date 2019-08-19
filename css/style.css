@@ -6,15 +6,16 @@
  *
  */
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,900);
-.footer:after, .main__content:after, .header:after, .form:after, .form__row:after {
+.header:after, .form:after, .form__row:after {
   content: '';
   display: table;
   clear: both; }
 
-.footer:before {
-  content: '';
-  display: table;
-  clear: both; }
+@font-face {
+  font-family: "ArialMT";
+  font-style: normal;
+  font-weight: normal;
+  src: url("fonts/CenturyGothic.eot?") format("eot"), url("fonts/CenturyGothic.woff2") format("woff2"), url("fonts/CenturyGothic.woff") format("woff"), url("fonts/CenturyGothic.ttf") format("truetype"), url("fonts/CenturyGothic.svg#ArialMT") format("svg"); }
 
 /* Global variables */
 /* ======================================================================== */
@@ -26,12 +27,19 @@
 * {
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
+  *:after, *:before {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box; }
 
-html, body, .wrapper {
+body,
+html {
   height: 100%;
   position: relative;
   -webkit-box-sizing: content-box;
   box-sizing: content-box; }
+
+.wrapper {
+  min-height: 100%; }
 
 /*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
 /* Document
@@ -62,7 +70,18 @@ body {
 /**
  * Add the correct display in IE 9-.
  */
-article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
   display: block; }
 
 /**
@@ -125,9 +144,9 @@ a {
   /* 1 */
   -webkit-text-decoration-skip: objects;
   /* 2 */
-  -webkit-transition: all .3s;
-  -o-transition: all .3s;
-  transition: all .3s; }
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s; }
   a:focus {
     outline: 0; }
 
@@ -273,8 +292,7 @@ select {
  *    controls in Android 4.
  * 2. Correct the inability to style clickable types in iOS and Safari.
  */
-button,
-html [type="button"],
+button, html [type="button"],
 [type="reset"],
 [type="submit"] {
   -webkit-appearance: button;
@@ -283,20 +301,20 @@ html [type="button"],
 /**
  * Remove the inner border and padding in Firefox.
  */
-button::-moz-focus-inner,
 [type="button"]::-moz-focus-inner,
 [type="reset"]::-moz-focus-inner,
-[type="submit"]::-moz-focus-inner {
+[type="submit"]::-moz-focus-inner,
+button::-moz-focus-inner {
   border-style: none;
   padding: 0; }
 
 /**
  * Restore the focus styles unset by the previous rule.
  */
-button:-moz-focusring,
 [type="button"]:-moz-focusring,
 [type="reset"]:-moz-focusring,
-[type="submit"]:-moz-focusring {
+[type="submit"]:-moz-focusring,
+button:-moz-focusring {
   outline: 1px dotted ButtonText; }
 
 /**
@@ -426,40 +444,47 @@ template {
 [hidden] {
   display: none; }
 
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column; }
+
 .wrapper {
-  font-size: 16px;
-  min-height: 100%;
-  height: auto !important;
-  height: 100%;
-  margin: 0 auto -60px auto; }
+  font-size: 16px; }
 
 /* Middle
  ----------------------------------------------------------------------------- */
-.main__content {
-  padding-bottom: 60px; }
+.main_content {
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1; }
 
 .container_center {
-  max-width: 900px;
+  max-width: 1200px;
   padding: 0 15px;
   margin-left: auto;
   margin-right: auto; }
-
-.column {
-  -webkit-column-count: 4;
-  column-count: 4;
-  -webkit-column-gap: 20px;
-  column-gap: 20px;
-  -webkit-column-width: 300px;
-  column-width: 300px; }
 
 /* Header
  ----------------------------------------------------------------------------- */
 .header {
   background-color: #ccc;
   padding: 10px 0; }
-  .header__logo {
-    float: left;
-    width: 150px; }
+  .header__content {
+    max-width: 1200px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between; }
 
 .stiky {
   position: fixed;
@@ -467,16 +492,24 @@ template {
   left: 0;
   width: 100%; }
 
+/* Navbar
+-------------------------------------------------------------------------------*/
+.navbar {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+  .navbar__item {
+    margin: 5px; }
+
 /* Footer
  ----------------------------------------------------------------------------- */
 .footer {
   font-size: 16px;
   position: relative;
-  height: 60px;
   background: #BFF08E; }
-  .footer .container_center {
-    padding-top: 10px;
-    padding-bottom: 10px; }
 
 .form__row {
   margin-bottom: 15px; }

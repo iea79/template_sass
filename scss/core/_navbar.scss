@@ -3,10 +3,13 @@
 .navbar {
 	margin: 0;
 	padding: 0;
-	overflow: hidden;
-	text-align: right;
+	list-style: none;
+	display: flex;
+
 	&__item {
-		display: inline-block;
+		// display: inline-block;
+		margin: 5px;
 	}
+
 	&__link {}
 }
