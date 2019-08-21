@@ -24,55 +24,19 @@ function isTouch() { return TempApp.touchDevice(); } // for touch device
 
 
 $(document).ready(function() {
-
     // Хак для клика по ссылке на iOS
     if (isIOS()) {
         $(function(){$(document).on('touchend', 'a', $.noop)});
     }
 
-
-	// First screen full height
-	function setHeiHeight() {
-	    $('.full__height').css({
-	        minHeight: $(window).height() + 'px'
-	    });
-	}
-	setHeiHeight(); // устанавливаем высоту окна при первой загрузке страницы
-	$(window).resize( setHeiHeight ); // обновляем при изменении размеров окна
-
-
-	// Reset link whte attribute href="#"
-	$('[href*="#"]').click(function(event) {
+	// Запрет "отскока" страницы при клике по пустой ссылке с href="#"
+	$('[href="#"]').click(function(event) {
 		event.preventDefault();
 	});
-
-	// Scroll to ID // Плавный скролл к элементу при нажатии на ссылку. В ссылке указываем ID элемента
-	// $('#main__menu a[href^="#"]').click( function(){
-	// 	var scroll_el = $(this).attr('href');
-	// 	if ($(scroll_el).length != 0) {
-	// 	$('html, body').animate({ scrollTop: $(scroll_el).offset().top }, 500);
-	// 	}
-	// 	return false;
-	// });
-
-	// Stiky menu // Липкое меню. При прокрутке к элементу #header добавляется класс .stiky который и стилизуем
-    // $(document).ready(function(){
-    //     var HeaderTop = $('#header').offset().top;
-
-    //     $(window).scroll(function(){
-    //             if( $(window).scrollTop() > HeaderTop ) {
-    //                     $('#header').addClass('stiky');
-    //             } else {
-    //                     $('#header').removeClass('stiky');
-    //             }
-    //     });
-    // });
 
     // Inputmask.js
     // $('[name=tel]').inputmask("+9(999)999 99 99",{ showMaskOnHover: false });
     // formSubmit();
-
-   	gridMatch();
 
     checkOnResize();
 
@@ -85,18 +49,57 @@ $(window).resize(function(event) {
     TempApp.resized = windowWidth;
 
 	checkOnResize();
-
 });
 
 function checkOnResize() {
-   	gridMatch();
     fontResize();
 }
 
-function gridMatch() {
-   	$('[data-grid-match] .grid__item').matchHeight({
-   		byRow: true,
-   	});
+// Stiky menu // Липкое меню. При прокрутке к элементу #header добавляется класс .stiky который и стилизуем
+function stikyMenu() {
+    let HeaderTop = $('header').offset().top + $('.home').innerHeight();
+    let currentTop = $(window).scrollTop();
+
+    setNavbarPosition();
+
+    $(window).scroll(function(){
+        setNavbarPosition();
+    });
+
+    function setNavbarPosition() {
+        currentTop = $(window).scrollTop();
+
+        if( currentTop > HeaderTop ) {
+            $('header').addClass('stiky');
+        } else {
+            $('header').removeClass('stiky');
+        }
+
+        $('.navbar__link').each(function(index, el) {
+            let section = $(this).attr('href');
+
+            if ($('section').is(section)) {
+                let offset = $(section).offset().top;
+
+                if (offset <= currentTop && offset + $(section).innerHeight() > currentTop) {
+                    $(this).addClass('active');
+                } else {
+                    $(this).removeClass('active');
+                }
+            }
+        });
+    }
+};
+
+// Scroll to ID // Плавный скролл к элементу при нажатии на ссылку. В ссылке указываем ID элемента
+function srollToId() {
+    $('[data-scroll-to]').click( function(){
+        var scroll_el = $(this).attr('href');
+        if ($(scroll_el).length != 0) {
+            $('html, body').animate({ scrollTop: $(scroll_el).offset().top }, 500);
+        }
+        return false;
+    });
 }
 
 function fontResize() {
@@ -110,8 +113,9 @@ function fontResize() {
 }
 
 // Видео youtube для страницы
-$(function () {
+function uploadYoutubeVideo() {
     if ($(".js_youtube")) {
+
         $(".js_youtube").each(function () {
             // Зная идентификатор видео на YouTube, легко можно найти его миниатюру
             $(this).css('background-image', 'url(http://i.ytimg.com/vi/' + this.id + '/sddefault.jpg)');
@@ -123,16 +127,16 @@ $(function () {
 
         $('.video__play, .video__prev').on('click', function () {
             // создаем iframe со включенной опцией autoplay
-            var videoId = $(this).closest('.js_youtube').attr('id');
-            var iframe_url = "https://www.youtube.com/embed/" + videoId + "?autoplay=1&autohide=1";
+            let wrapp = $(this).closest('.js_youtube'),
+                videoId = wrapp.attr('id'),
+                iframe_url = "https://www.youtube.com/embed/" + videoId + "?autoplay=1&autohide=1";
+
             if ($(this).data('params')) iframe_url += '&' + $(this).data('params');
 
             // Высота и ширина iframe должны быть такими же, как и у родительского блока
-            var iframe = $('<iframe/>', {
+            let iframe = $('<iframe/>', {
                 'frameborder': '0',
                 'src': iframe_url,
-                'width': $(this).width(),
-                'height': $(this).innerHeight()
             })
 
             // Заменяем миниатюру HTML5 плеером с YouTube
@@ -140,8 +144,7 @@ $(function () {
 
         });
     }
-
-});
+};
 
 
 // Деление чисел на разряды Например из строки 10000 получаем 10 000
