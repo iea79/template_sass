@@ -1,3 +1,4 @@
+-var version = '0.1';
 <!DOCTYPE html>
 html(lang="en")
     head
@@ -6,7 +7,7 @@ html(lang="en")
         meta(http-equiv="X-UA-Compatible", content="ie=edge")
         title Document
 
-        link(rel="stylesheet", type="text/css", href="css/style.css")
+        link(rel="stylesheet", type="text/css", href="css/style.css?"+version+"")
     body
         header.header
             .header__content
@@ -38,3 +39,6 @@ html(lang="en")
                 | &copy; 2016 |
                 i.fa.fa-github(aria-hidden='true') &nbsp;
                 a(href='#') View Source
+
+        script(src="js/jquery.js")
+        script(src="js/function.js?"+version+"")
