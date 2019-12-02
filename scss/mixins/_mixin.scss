@@ -156,19 +156,19 @@
 }
 // Ширина колонок сетки при смене ширины окна
 // @include xs-grid-size(2); две колонки при меньше 767 пикселей
-@mixin xs-grid-size($size) {
+@mixin xs-grid-size($size, $gup: 20px) {
 	@media (max-width: 767px) {
-		@include grid-size($size);
+		@include grid-size($size, $gup);
 	}
 }
-@mixin sm-grid-size($size) {
+@mixin sm-grid-size($size, $gup: 20px) {
 	@media (max-grid-width: 991px) {
-		@include size($size);
+		@include size($size, $gup);
 	}
 }
-@mixin md-grid-size($size) {
+@mixin md-grid-size($size, $gup: 20px) {
 	@media (max-width: 1199px) {
-		@include grid-size($size);
+		@include grid-size($size, $gup);
 	}
 }
 
