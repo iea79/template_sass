@@ -114,9 +114,9 @@ function fontResize() {
 
 // Видео youtube для страницы
 function uploadYoutubeVideo() {
-    if ($(".js_youtube")) {
+    if ($(".js-youtube")) {
 
-        $(".js_youtube").each(function () {
+        $(".js-youtube").each(function () {
             // Зная идентификатор видео на YouTube, легко можно найти его миниатюру
             $(this).css('background-image', 'url(http://i.ytimg.com/vi/' + this.id + '/sddefault.jpg)');
 
@@ -127,7 +127,7 @@ function uploadYoutubeVideo() {
 
         $('.video__play, .video__prev').on('click', function () {
             // создаем iframe со включенной опцией autoplay
-            let wrapp = $(this).closest('.js_youtube'),
+            let wrapp = $(this).closest('.js-youtube'),
                 videoId = wrapp.attr('id'),
                 iframe_url = "https://www.youtube.com/embed/" + videoId + "?autoplay=1&autohide=1";
 
