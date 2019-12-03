@@ -148,6 +148,8 @@
 // @include grid(2, .5em); две колонки
 @mixin grid($size, $gup: 20px) {
 	margin-left: -$gup;
+	display: flex;
+	flex-wrap: wrap;
 
 	> div {
 		padding-left: $gup;
