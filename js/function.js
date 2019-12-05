@@ -7,6 +7,7 @@
  */
 
 var TempApp = {
+    pageScroll: '',
     lgWidth: 1200,
     mdWidth: 992,
     smWidth: 768,
@@ -91,6 +92,15 @@ function stikyMenu() {
     }
 };
 
+function openMobileNav() {
+    $('.navbar__toggle').on('click', function() {
+        var wrapp = $('.header__bottom');
+
+        wrapp.toggleClass('open');
+    });
+};
+openMobileNav();
+
 // Scroll to ID // Плавный скролл к элементу при нажатии на ссылку. В ссылке указываем ID элемента
 function srollToId() {
     $('[data-scroll-to]').click( function(){
@@ -111,6 +121,24 @@ function fontResize() {
     }
 	$('body').css('fontSize', fontSize + '%');
 }
+
+// Проверка направления прокрутки вверх/вниз
+function checkDirectionScroll() {
+    var tempScrollTop, currentScrollTop = 0;
+
+    $(window).scroll(function(){
+        currentScrollTop = $(window).scrollTop();
+
+        if (tempScrollTop < currentScrollTop ) {
+            TempApp.pageScroll = "down";
+        } else if (tempScrollTop > currentScrollTop ) {
+            TempApp.pageScroll = "up";
+        }
+        tempScrollTop = currentScrollTop;
+
+    });
+}
+checkDirectionScroll();
 
 // Видео youtube для страницы
 function uploadYoutubeVideo() {
