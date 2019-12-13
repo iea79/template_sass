@@ -151,13 +151,16 @@
 	display: flex;
 	flex-wrap: wrap;
 
-	> div {
+	> div,
+	a {
+		display: flex;
 		padding-left: $gup;
 		width: 100% / $size;
+		// margin-bottom: $gup / 2;
 	}
 }
 // Ширина колонок сетки при смене ширины окна
-// @include xs-grid-size(2); две колонки при меньше 767 пикселей
+// @include xs-size(2); две колонки при меньше 767 пикселей
 @mixin xs-grid($size, $gup: 20px) {
 	@media (min-width: 768px) {
 		@include grid($size, $gup);

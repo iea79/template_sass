@@ -22,55 +22,62 @@
 	&_nowrap {
 		@include flex-flow(row nowrap);
 	}
-	>div {
+
+	> div {
 		padding-left: $grid_padding;
 		margin-bottom: $grid_padding;
+
 		&.width {
 			&_1 {
 				width: 50%;
 			}
+
 			&_2 {
 				width: 50%;
 			}
+
 			&_3 {
 				width: 33.3%;
 			}
+
 			&_4 {
 				width: 25%;
 			}
+
 			&_5 {
 				width: 20%;
 			}
+
 			&_2_3 {
 				width: 66%;
 			}
+
 			&_3_4 {
 				width: 75%;
 			}
 		}
 	}
+
 	&__item {
 		// border: 1px solid #000;
 		&.active {
 			// border: 3px solid #ddd;
 		}
 	}
-	@include grid-size(1);
-	@include grid-size(2);
-	@include grid-size(3);
-	@include grid-size(4);
-	@include grid-size(5);
-	@include grid-size(6);
-	@include grid-size(7);
-	@include grid-size(8);
-	@include grid-size(9);
-	@include grid-size(10);
-	@include grid-size(11);
-	@include grid-size(12);
+	@include grid(1);
+	@include grid(2);
+	@include grid(3);
+	@include grid(4);
+	@include grid(5);
+	@include grid(6);
+	@include grid(7);
+	@include grid(8);
+	@include grid(9);
+	@include grid(10);
+	@include grid(11);
+	@include grid(12);
 	// @include grid-size(50);
 }
-
-
 
 [data-grid-match] {
 	.grid__item {
@@ -81,7 +88,7 @@
 @media (max-width: 991px) {
 	.grid {
 		&__4 {
-			>div {
+			> div {
 				width: 50%;
 			}
 		}

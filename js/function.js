@@ -53,7 +53,7 @@ $(window).resize(function(event) {
 });
 
 function checkOnResize() {
-    fontResize();
+    // fontResize();
 }
 
 // Stiky menu // Липкое меню. При прокрутке к элементу #header добавляется класс .stiky который и стилизуем
