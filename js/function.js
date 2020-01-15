@@ -6,7 +6,7 @@
  *
  */
 
-var TempApp = {
+var app = {
     pageScroll: '',
     lgWidth: 1200,
     mdWidth: 992,
@@ -16,12 +16,12 @@ var TempApp = {
     touchDevice: function() { return navigator.userAgent.match(/iPhone|iPad|iPod|Android|BlackBerry|Opera Mini|IEMobile/i); }
 };
 
-function isLgWidth() { return $(window).width() >= TempApp.lgWidth; } // >= 1200
-function isMdWidth() { return $(window).width() >= TempApp.mdWidth && $(window).width() < TempApp.lgWidth; } //  >= 992 && < 1200
-function isSmWidth() { return $(window).width() >= TempApp.smWidth && $(window).width() < TempApp.mdWidth; } // >= 768 && < 992
-function isXsWidth() { return $(window).width() < TempApp.smWidth; } // < 768
-function isIOS() { return TempApp.iOS(); } // for iPhone iPad iPod
-function isTouch() { return TempApp.touchDevice(); } // for touch device
+function isLgWidth() { return $(window).width() >= app.lgWidth; } // >= 1200
+function isMdWidth() { return $(window).width() >= app.mdWidth && $(window).width() < app.lgWidth; } //  >= 992 && < 1200
+function isSmWidth() { return $(window).width() >= app.smWidth && $(window).width() < app.mdWidth; } // >= 768 && < 992
+function isXsWidth() { return $(window).width() < app.smWidth; } // < 768
+function isIOS() { return app.iOS(); } // for iPhone iPad iPod
+function isTouch() { return app.touchDevice(); } // for touch device
 
 
 $(document).ready(function() {
@@ -46,8 +46,8 @@ $(document).ready(function() {
 $(window).resize(function(event) {
     var windowWidth = $(window).width();
     // Запрещаем выполнение скриптов при смене только высоты вьюпорта (фикс для скролла в IOS и Android >=v.5)
-    if (TempApp.resized == windowWidth) { return; }
-    TempApp.resized = windowWidth;
+    if (app.resized == windowWidth) { return; }
+    app.resized = windowWidth;
 
 	checkOnResize();
 });
@@ -130,9 +130,9 @@ function checkDirectionScroll() {
         currentScrollTop = $(window).scrollTop();
 
         if (tempScrollTop < currentScrollTop ) {
-            TempApp.pageScroll = "down";
+            app.pageScroll = "down";
         } else if (tempScrollTop > currentScrollTop ) {
-            TempApp.pageScroll = "up";
+            app.pageScroll = "up";
         }
         tempScrollTop = currentScrollTop;
 
