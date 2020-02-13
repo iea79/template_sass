@@ -1,9 +1,7 @@
 .form {
-	@extend %clear_a;
 
 	&__row {
 		margin-bottom: 15px;
-		@extend %clear_a;
 
 		.btn,
 		input:not([type]),
