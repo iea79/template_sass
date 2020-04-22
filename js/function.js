@@ -39,7 +39,7 @@ $(document).ready(function() {
     // $('[name=tel]').inputmask("+9(999)999 99 99",{ showMaskOnHover: false });
     // formSubmit();
 
-    checkOnResize();
+    // checkOnResize();
 
 });
 
@@ -49,7 +49,7 @@ $(window).resize(function(event) {
     if (app.resized == windowWidth) { return; }
     app.resized = windowWidth;
 
-	checkOnResize();
+	// checkOnResize();
 });
 
 function checkOnResize() {
