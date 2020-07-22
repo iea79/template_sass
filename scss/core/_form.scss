@@ -1,5 +1,4 @@
 .form {
-
 	&__row {
 		margin-bottom: 15px;
 
@@ -24,8 +23,7 @@
 		}
 	}
 
-	&__label {
-		}
+	&__label {}
 }
 // Input text and textarea ================================================
 input:not([type]),
@@ -64,7 +62,7 @@ textarea {
 	}
 	// Placeholder for input +++++++++++++++
 	@include placeholder {
-		color: $input_placeholder_color;
+		color: #ddd;
 	}
 }
 
