@@ -7,12 +7,6 @@
  *
  */
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,900);
-.header:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
 @font-face {
   font-family: "ArialMT";
   font-style: normal;
@@ -534,9 +528,9 @@ body {
           flex-grow: 1;
 }
 
-.container_center {
-  max-width: 1200px;
-  padding: 0 15px;
+.container_center, .footer__content, .header__content {
+  max-width: 80em;
+  padding: 0 1em;
   margin-left: auto;
   margin-right: auto;
 }
@@ -544,13 +538,10 @@ body {
 /* Header
  ----------------------------------------------------------------------------- */
 .header {
-  background-color: #ccc;
-  padding: 10px 0;
+  padding: 1em 0;
+  background-color: #ddd;
 }
 .header__content {
-  max-width: 1200px;
-  padding-left: 15px;
-  padding-right: 15px;
   margin: auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -651,8 +642,21 @@ body {
  ----------------------------------------------------------------------------- */
 .footer {
   position: relative;
-  background: #BFF08E;
+  padding: 1em 0;
+  background-color: #ddd;
 }
+.footer__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .form__row {
   margin-bottom: 15px;
 }

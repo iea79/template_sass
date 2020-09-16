@@ -1,14 +1,11 @@
 /* Header
  ----------------------------------------------------------------------------- */
 .header {
-	background-color: #ccc;
-	padding: 10px 0;
-	@extend %clear_a;
+	padding: 1em 0;
+	background-color: #ddd;
 
 	&__content {
-		max-width: $container_width;
-		padding-left: 15px;
-		padding-right: 15px;
+		@extend .container_center;
 		margin: auto;
 		display: flex;
 		justify-content: space-between;
