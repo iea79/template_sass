@@ -4,7 +4,7 @@
 
 		.btn,
 		input:not([type]),
-		input[type=datetime],
+		input[type=date],
 		input[type=email],
 		input[type=number],
 		input[type=password],
@@ -27,7 +27,7 @@
 }
 // Input text and textarea ================================================
 input:not([type]),
-input[type=datetime],
+input[type=date],
 input[type=email],
 input[type=number],
 input[type=password],

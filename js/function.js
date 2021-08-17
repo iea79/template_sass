@@ -1,6 +1,6 @@
 /*!
  *
- * Evgeniy Ivanov - 2018
+ * Evgeniy Ivanov - 2021
  * busforward@gmail.com
  * Skype: ivanov_ea
  *
@@ -39,7 +39,7 @@ $(document).ready(function() {
     // $('[name=tel]').inputmask("+9(999)999 99 99",{ showMaskOnHover: false });
     // formSubmit();
 
-    // checkOnResize();
+    checkOnResize();
 
 });
 
@@ -49,11 +49,10 @@ $(window).resize(function(event) {
     if (app.resized == windowWidth) { return; }
     app.resized = windowWidth;
 
-	// checkOnResize();
+	checkOnResize();
 });
 
 function checkOnResize() {
-    // fontResize();
 }
 
 // Stiky menu // Липкое меню. При прокрутке к элементу #header добавляется класс .stiky который и стилизуем
@@ -90,37 +89,39 @@ function stikyMenu() {
             }
         });
     }
-};
+}
 
 function openMobileNav() {
     $('.navbar__toggle').on('click', function() {
-        var wrapp = $('.nav');
+        let wrapp = $('.nav');
 
         wrapp.toggleClass('open');
     });
-};
+}
 openMobileNav();
 
 // Scroll to ID // Плавный скролл к элементу при нажатии на ссылку. В ссылке указываем ID элемента
 function srollToId() {
     $('[data-scroll-to]').click( function(){
-        var scroll_el = $(this).attr('href');
-        if ($(scroll_el).length != 0) {
-            $('html, body').animate({ scrollTop: $(scroll_el).offset().top }, 500);
+        let scrolled = $(this).attr('href');
+        if ($(scrolled).length != 0) {
+            $('html, body').animate({ scrollTop: $(scrolled).offset().top }, 500);
         }
         return false;
     });
 }
 
-function fontResize() {
-    var windowWidth = $(window).width();
-    if (windowWidth >= 1200) {
-    	var fontSize = windowWidth/19.05;
-    } else if (windowWidth < 1200) {
-    	var fontSize = 60;
-    }
-	$('body').css('fontSize', fontSize + '%');
+function toggleTabs() {
+    let toggle = $('[data-tab]');
+    toggle.on('click', (e) => {
+        let self = e.target;
+        $('[data-tab]').removeClass('active');
+        $(self).addClass('active');
+        $('[data-plate]').removeClass('active');
+        $('[data-plate='+self.dataset.tab+']').addClass('active');
+    });
 }
+toggleTabs();
 
 // Проверка направления прокрутки вверх/вниз
 function checkDirectionScroll() {
