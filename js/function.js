@@ -315,3 +315,45 @@ function uploadYoutubeVideo() {
 //         that.value = that.value.replace(res, '');
 //     }, 0);
 // });
+
+// Добавление класса при прокрутке
+// function onVisible(selector, callback, repeat = false) {
+//
+//     let options = {threshold: [0.5] };
+//     let observer = new IntersectionObserver(onEntry, options);
+//     let elements = document.querySelectorAll(selector);
+//
+//     for (let elm of elements) {
+//         observer.observe(elm);
+//     }
+//
+//     function onEntry(entry) {
+//         entry.forEach(change => {
+//             let elem = change.target;
+//             // console.log(change);
+//             // console.log(elem.innerHTML);
+//             if (change.isIntersecting) {
+//                 if (!elem.classList.contains('show') || repeat) {
+//                     elem.classList.add('show');
+//                     callback(elem);
+//                 }
+//             }
+//         });
+//     }
+//
+// }
+//
+// onVisible('.programsInfo__number',  function(e) {
+//     animateNumber(e, e.innerHTML);
+// }, true);
+//
+// // Анимация чисел
+// function animateNumber(elem, final, duration = 1000) {
+//     let start = 0;
+//     // console.log('init');
+//     setInterval(function () {
+//         if (final > start) {
+//             elem.innerHTML = start++;
+//         }
+//     }, duration / final);
+// }
